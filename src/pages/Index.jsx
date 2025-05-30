@@ -25,7 +25,7 @@ const Index = () => {
             <div className="text-2xl mb-3">🌍</div>
             <h3 className="font-semibold text-lg mb-2">Area Converter</h3>
             <p className="text-gray-600 text-sm">
-              Convert between square meters, feet, acres, hectares and more
+              Convert between square meters, feet, acres, hectares, cent, bigha, gunta and more
             </p>
           </div>
           
@@ -68,6 +68,86 @@ const Index = () => {
               Convert between liters, gallons, cups, milliliters and more
             </p>
           </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">⏱️</div>
+            <h3 className="font-semibold text-lg mb-2">Time Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between seconds, minutes, hours, days, weeks and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">⚡</div>
+            <h3 className="font-semibold text-lg mb-2">Speed Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between m/s, km/h, mph, knots and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">💻</div>
+            <h3 className="font-semibold text-lg mb-2">Digital Storage</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between bytes, KB, MB, GB, TB and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🔋</div>
+            <h3 className="font-semibold text-lg mb-2">Energy Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between joules, calories, kilowatt-hours and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🧪</div>
+            <h3 className="font-semibold text-lg mb-2">Pressure Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between Pascal, Bar, PSI, atmosphere and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🔌</div>
+            <h3 className="font-semibold text-lg mb-2">Power Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between watts, kilowatts, horsepower and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🧱</div>
+            <h3 className="font-semibold text-lg mb-2">Density Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between kg/m³, g/cm³, lb/ft³ and more
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🎚️</div>
+            <h3 className="font-semibold text-lg mb-2">Fuel Consumption</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between km/l, l/100km, mpg (US/UK)
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">📐</div>
+            <h3 className="font-semibold text-lg mb-2">Angle Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between degrees, radians, gradians and turns
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div className="text-2xl mb-3">🪜</div>
+            <h3 className="font-semibold text-lg mb-2">Height Converter</h3>
+            <p className="text-gray-600 text-sm">
+              Convert between feet, inches, centimeters, meters and hands
+            </p>
+          </div>
         </div>
       </main>
       
@@ -83,6 +163,9 @@ const Index = () => {
             <a href="#privacy" className="text-blue-200 hover:text-white">Privacy</a>
             <a href="#terms" className="text-blue-200 hover:text-white">Terms</a>
           </div>
+          <p className="mt-4 text-sm text-blue-200">
+            &copy; 2024 ConverterPro by BKND Groups. All rights reserved.
+          </p>
         </div>
       </footer>
     </div>

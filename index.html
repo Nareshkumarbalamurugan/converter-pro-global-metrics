@@ -13,10 +13,414 @@
     <meta property="og:description" content="Convert between all units easily with our comprehensive unit converter tool" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://converterpro.online" />
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <h2>ConverterPro</h2>
+          <span>by BKND Groups</span>
+        </div>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#" class="nav-link" onclick="showSection('home')" data-translate="home">Home</a></li>
+          <li><a href="#" class="nav-link" onclick="showSection('home')" data-translate="converters">Converters</a></li>
+          <li><a href="#" class="nav-link" onclick="showSection('gold-rates')" data-translate="goldRates">Gold Rates</a></li>
+          <li><a href="#" class="nav-link" onclick="showSection('about')" data-translate="about">About</a></li>
+          <li><a href="#" class="nav-link" onclick="showSection('contact')" data-translate="contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <div class="language-selector">
+            <select id="language-select" onchange="changeLanguage(this.value)">
+              <option value="en">English</option>
+              <option value="hi">हिंदी</option>
+              <option value="ta">தமிழ்</option>
+              <option value="te">తెలుగు</option>
+              <option value="kn">ಕನ್ನಡ</option>
+              <option value="es">Español</option>
+              <option value="fr">Français</option>
+              <option value="de">Deutsch</option>
+              <option value="zh">中文</option>
+              <option value="ar">العربية</option>
+            </select>
+          </div>
+          <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+        <button class="nav-toggle" id="nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Search Section -->
+    <section class="search-container">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" id="search-input" placeholder="Search converters (e.g., 'inch to cm', 'kg to lb')" data-translate-placeholder="searchPlaceholder">
+        <div class="search-results" id="search-results"></div>
+      </div>
+    </section>
+
+    <main>
+      <!-- Home Section -->
+      <section id="home" class="section active">
+        <div class="hero">
+          <div class="container">
+            <h1 data-translate="welcome">Welcome to ConverterPro</h1>
+            <p data-translate="tagline">Your ultimate tool for all unit conversions. Fast, accurate, and free!</p>
+            <div class="hero-stats">
+              <div class="stat">
+                <h3>17</h3>
+                <p data-translate="categories">Categories</p>
+              </div>
+              <div class="stat">
+                <h3>150+</h3>
+                <p data-translate="units">Units</p>
+              </div>
+              <div class="stat">
+                <h3>10</h3>
+                <p data-translate="languages">Languages</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="categories-grid">
+            <div class="category-card" onclick="openConverter('area')">
+              <div class="category-icon">🌍</div>
+              <h3>Area Converter</h3>
+              <p>Convert between square meters, feet, acres, hectares, cent, bigha, gunta, kanal, marla and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('length')">
+              <div class="category-icon">📏</div>
+              <h3>Length Converter</h3>
+              <p>Convert between meters, feet, inches, kilometers and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('weight')">
+              <div class="category-icon">⚖️</div>
+              <h3>Weight Converter</h3>
+              <p>Convert between kilograms, pounds, ounces, tons and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('volume')">
+              <div class="category-icon">💧</div>
+              <h3>Volume Converter</h3>
+              <p>Convert between liters, gallons, cups, milliliters and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('temperature')">
+              <div class="category-icon">🌡️</div>
+              <h3>Temperature Converter</h3>
+              <p>Convert between Celsius, Fahrenheit, Kelvin and Rankine</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('time')">
+              <div class="category-icon">⏱️</div>
+              <h3>Time Converter</h3>
+              <p>Convert between seconds, minutes, hours, days, weeks, months and years</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('speed')">
+              <div class="category-icon">⚡</div>
+              <h3>Speed Converter</h3>
+              <p>Convert between m/s, km/h, mph, knots and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('digital')">
+              <div class="category-icon">💻</div>
+              <h3>Digital Storage</h3>
+              <p>Convert between bytes, KB, MB, GB, TB and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('currency')">
+              <div class="category-icon">💵</div>
+              <h3>Currency Converter</h3>
+              <p>Live currency conversion with real-time exchange rates</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('energy')">
+              <div class="category-icon">🔋</div>
+              <h3>Energy Converter</h3>
+              <p>Convert between joules, calories, kilowatt-hours and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('pressure')">
+              <div class="category-icon">🧪</div>
+              <h3>Pressure Converter</h3>
+              <p>Convert between Pascal, Bar, PSI, atmosphere and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('power')">
+              <div class="category-icon">🔌</div>
+              <h3>Power Converter</h3>
+              <p>Convert between watts, kilowatts, horsepower and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('density')">
+              <div class="category-icon">🧱</div>
+              <h3>Density Converter</h3>
+              <p>Convert between kg/m³, g/cm³, lb/ft³ and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('fuel')">
+              <div class="category-icon">🎚️</div>
+              <h3>Fuel Consumption</h3>
+              <p>Convert between km/l, l/100km, mpg (US/UK)</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('data-transfer')">
+              <div class="category-icon">🧾</div>
+              <h3>Data Transfer Rate</h3>
+              <p>Convert between bps, kbps, Mbps, Gbps and more</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('angle')">
+              <div class="category-icon">📐</div>
+              <h3>Angle Converter</h3>
+              <p>Convert between degrees, radians, gradians and turns</p>
+            </div>
+            
+            <div class="category-card" onclick="openConverter('height')">
+              <div class="category-icon">🪜</div>
+              <h3>Height Converter</h3>
+              <p>Convert between feet, inches, centimeters, meters and hands</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Converter Interface -->
+      <section id="converter-interface" class="section">
+        <div class="container">
+          <div class="converter-header">
+            <a href="#" class="back-btn" onclick="showSection('home')">
+              <i class="fas fa-arrow-left"></i>
+              <span data-translate="backToConverters">Back to Converters</span>
+            </a>
+            <h1 id="converter-title">Unit Converter</h1>
+          </div>
+          
+          <div class="converter-content">
+            <div class="converter-box">
+              <div class="input-group">
+                <label data-translate="from">From:</label>
+                <select id="from-unit"></select>
+                <input type="number" id="from-value" placeholder="Enter value" oninput="updateConversion()">
+              </div>
+              
+              <button class="swap-btn" onclick="swapUnits()">
+                <i class="fas fa-exchange-alt"></i>
+              </button>
+              
+              <div class="input-group">
+                <label data-translate="to">To:</label>
+                <select id="to-unit"></select>
+                <input type="number" id="to-value" placeholder="Result" readonly>
+              </div>
+            </div>
+            
+            <div class="all-conversions">
+              <h3 data-translate="allConversions">All Conversions:</h3>
+              <div class="conversions-grid" id="conversions-grid"></div>
+            </div>
+            
+            <div class="converter-actions">
+              <button class="action-btn" onclick="copyResult()">
+                <i class="fas fa-copy"></i>
+                <span data-translate="copyResult">Copy Result</span>
+              </button>
+              <button class="action-btn" onclick="shareResult()">
+                <i class="fas fa-share"></i>
+                <span data-translate="share">Share</span>
+              </button>
+              <button class="action-btn" onclick="addToFavorites()">
+                <i class="fas fa-heart"></i>
+                <span data-translate="favorite">Favorite</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gold Rates Section -->
+      <section id="gold-rates" class="section">
+        <div class="container">
+          <h1 data-translate="currentGoldRates">Current Gold Rates (Today)</h1>
+          
+          <div class="gold-rates-container">
+            <div class="gold-current-rates">
+              <h3>Live Gold Prices</h3>
+              <div class="rates-grid">
+                <div class="rate-card">
+                  <h4>24K Gold</h4>
+                  <div class="rate" id="gold-24k">₹ 6,200 / 10g</div>
+                  <div class="change positive">+₹50 (0.8%)</div>
+                </div>
+                <div class="rate-card">
+                  <h4>22K Gold</h4>
+                  <div class="rate" id="gold-22k">₹ 5,700 / 10g</div>
+                  <div class="change positive">+₹45 (0.8%)</div>
+                </div>
+                <div class="rate-card">
+                  <h4>18K Gold</h4>
+                  <div class="rate" id="gold-18k">₹ 4,650 / 10g</div>
+                  <div class="change positive">+₹35 (0.8%)</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="gold-calculator">
+              <h3 data-translate="goldCalculator">Gold Calculator</h3>
+              <form class="calculator-form">
+                <div class="form-group">
+                  <label data-translate="goldPurity">Gold Purity:</label>
+                  <select id="gold-purity" onchange="calculateGoldValue()">
+                    <option value="24">24K Gold</option>
+                    <option value="22">22K Gold</option>
+                    <option value="18">18K Gold</option>
+                    <option value="14">14K Gold</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label data-translate="weight">Weight:</label>
+                  <input type="number" id="gold-weight" placeholder="Enter weight" oninput="calculateGoldValue()">
+                  <select id="weight-unit" onchange="calculateGoldValue()">
+                    <option value="grams">Grams</option>
+                    <option value="kg">Kilograms</option>
+                    <option value="ounces">Ounces</option>
+                    <option value="tola">Tola</option>
+                  </select>
+                </div>
+                <div class="result-display">
+                  <h4 data-translate="estimatedValue">Estimated Value:</h4>
+                  <div class="gold-value" id="gold-total-value">₹ 0</div>
+                  <div class="gold-breakdown" id="gold-breakdown"></div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="container">
+          <div class="about-content">
+            <h1 data-translate="aboutTitle">About ConverterPro</h1>
+            <p data-translate="aboutText">ConverterPro is the ultimate unit conversion tool created by BKND Groups. Our mission is to provide fast, accurate, and free conversions for all types of measurements.</p>
+            
+            <div class="features-grid">
+              <div class="feature">
+                <i class="fas fa-bolt"></i>
+                <h3 data-translate="lightningFast">Lightning Fast</h3>
+                <p data-translate="instantConversions">Instant conversions with real-time results</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-globe"></i>
+                <h3 data-translate="multiLanguage">Multi-Language</h3>
+                <p data-translate="availableLanguages">Available in 10+ languages</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3 data-translate="mobileFriendly">Mobile Friendly</h3>
+                <p data-translate="perfectDevices">Perfect on all devices</p>
+              </div>
+              <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3 data-translate="privacyFirst">Privacy First</h3>
+                <p data-translate="noDataCollection">No data collection or tracking</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="container">
+          <h1 data-translate="contactTitle">Contact Us</h1>
+          <p data-translate="contactText">We'd love to hear from you! Send us your feedback, suggestions, or questions.</p>
+          
+          <div class="contact-content">
+            <div class="contact-details">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <div>
+                  <h4 data-translate="email">Email</h4>
+                  <p>kamaleshkumarbalamurugan@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-building"></i>
+                <div>
+                  <h4 data-translate="company">Company</h4>
+                  <p>BKND Groups</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <div>
+                  <h4 data-translate="website">Website</h4>
+                  <p>converterpro.online</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="contact-form">
+              <form onsubmit="sendMessage(event)">
+                <input type="text" name="name" placeholder="Your Name" data-translate-placeholder="yourName" required>
+                <input type="email" name="email" placeholder="Your Email" data-translate-placeholder="yourEmail" required>
+                <textarea name="message" placeholder="Your Message" data-translate-placeholder="yourMessage" required></textarea>
+                <button type="submit" data-translate="sendMessage">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>ConverterPro</h3>
+            <p>Your ultimate unit conversion tool. Fast, accurate, and free conversions for all measurements.</p>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <a href="#" onclick="showSection('home')">Home</a>
+            <a href="#" onclick="showSection('home')">All Converters</a>
+            <a href="#" onclick="showSection('gold-rates')">Gold Rates</a>
+            <a href="#" onclick="showSection('about')">About Us</a>
+          </div>
+          <div class="footer-section">
+            <h4>Converters</h4>
+            <a href="#" onclick="openConverter('area')">Area Converter</a>
+            <a href="#" onclick="openConverter('length')">Length Converter</a>
+            <a href="#" onclick="openConverter('weight')">Weight Converter</a>
+            <a href="#" onclick="openConverter('currency')">Currency Converter</a>
+          </div>
+          <div class="footer-section">
+            <h4>Contact</h4>
+            <a href="mailto:kamaleshkumarbalamurugan@gmail.com">kamaleshkumarbalamurugan@gmail.com</a>
+            <a href="#" onclick="showSection('contact')">Contact Form</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 ConverterPro by BKND Groups. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main.tsx"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>
